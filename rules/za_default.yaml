@@ -1,0 +1,53 @@
+jurisdiction: "South Africa"
+default_decision: "NEEDS_REVIEW"
+
+doc_types:
+  - KYC_COMPANY
+  - KYB_COMPANY
+  - AML_DECLARATION
+  - SALES_CONTRACT
+  - EXPORT_PERMIT
+  - OTHER
+
+required_by_type:
+  KYC_COMPANY:
+    - company_name
+    - registration_number
+    - registered_address
+    - director_or_authorised_signatory
+    - signature_present
+
+  KYB_COMPANY:
+    - company_name
+    - registration_number
+    - directors_list_or_reference
+    - ubo_declaration_or_reference
+
+  AML_DECLARATION:
+    - company_name
+    - declaration_present
+    - signature_present
+    - date
+
+  SALES_CONTRACT:
+    - buyer
+    - seller
+    - commodity
+    - quantity
+    - price_or_pricing_mechanism
+    - incoterms_or_delivery_terms
+    - contract_date
+    - signature_present
+
+  EXPORT_PERMIT:
+    - issuing_authority_or_reference
+    - permit_number
+    - commodity
+    - validity_dates_or_issue_date
+    - exporter_name
+
+cross_doc_checks:
+  - name: "Company name consistency"
+    field: company_name
+  - name: "Registration number consistency"
+    field: registration_number
